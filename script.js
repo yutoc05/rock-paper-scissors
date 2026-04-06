@@ -9,10 +9,6 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  return prompt("Let's play rock paper scissors! Which do you choose?");
-}
-
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1).toLowerCase();
 }
@@ -20,10 +16,10 @@ function capitalize(str) {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  const results = document.querySelector(".results");
 
   function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
-    const results = document.createElement("div");
     if (humanChoice === computerChoice) {
       results.textContent = "You tied!";
     } else if (
@@ -37,7 +33,11 @@ function playGame() {
       results.textContent = `You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}.`;
       computerScore++;
     }
-    results.textContent += ` Current score: ${humanScore}-${computerScore}`;
+    if (humanScore < 5 && computerScore < 5) {
+      results.textContent += ` Current score: ${humanScore}-${computerScore}`;
+    } else {
+      results.textContent += ` The game is over. Final score: ${humanScore}-${computerScore}`;
+    }
     document.body.append(results);
   }
 
@@ -47,19 +47,6 @@ function playGame() {
       playRound(button.className, getComputerChoice());
     });
   }
-
-  let result;
-  if (humanScore === computerScore) {
-    result = "tied";
-  } else if (humanScore > computerScore) {
-    result = "win";
-  } else {
-    result = "lose";
-  }
-
-  console.log(
-    `The game is over. You ${result}! Final score: ${humanScore}-${computerScore}`,
-  );
 }
 
 playGame();
