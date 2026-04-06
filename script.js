@@ -44,7 +44,7 @@ function playGame() {
   const buttons = document.querySelectorAll("button");
   for (const button of buttons) {
     button.addEventListener("click", () => {
-      playRound(button.className, getComputerChoice());
+      playRound(button.classList[0], getComputerChoice());
     });
   }
 }

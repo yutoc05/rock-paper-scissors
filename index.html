@@ -4,12 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <script src="script.js" type="module"></script>
   </head>
-  <body>
-    <button class="rock"></button>
-    <button class="paper"></button>
-    <button class="scissors"></button>
+  <body
+    class="d-flex flex-column justify-content-center align-items-center min-vh-100 gap-2"
+    data-bs-theme="dark"
+  >
+    <h3>Welcome to Rock Paper Scissors!</h3>
+    <div class="d-flex gap-2">
+      <button class="rock btn btn-light">Rock</button>
+      <button class="paper btn btn-light">Paper</button>
+      <button class="scissors btn btn-light">Scissors</button>
+    </div>
     <div class="results"></div>
   </body>
 </html>
